@@ -13,7 +13,7 @@ import javax.persistence.Table;
 public class Feriado {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO);
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private int id;
     private Date dataFeriado;
     private String descricao;
