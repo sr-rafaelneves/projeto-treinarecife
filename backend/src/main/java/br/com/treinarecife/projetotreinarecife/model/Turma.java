@@ -1,9 +1,13 @@
 package br.com.treinarecife.projetotreinarecife.model;
 
+import java.util.List;
+
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 @Entity
@@ -12,7 +16,9 @@ public class Turma {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private int idTurma;
-    private int idAluno;
+    @OneToMany
+    @JoinColumn(name = "idAluno")
+    private List<Aluno> alunos;
     private int idCurso;
     private int idProfessor;
     private Double valor;
