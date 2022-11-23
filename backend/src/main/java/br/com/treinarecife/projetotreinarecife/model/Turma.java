@@ -35,12 +35,6 @@ public class Turma {
     public void setIdTurma(int idTurma) {
         this.idTurma = idTurma;
     }
-    public int getIdAluno() {
-        return idAluno;
-    }
-    public void setIdAluno(int idAluno) {
-        this.idAluno = idAluno;
-    }
     public int getIdCurso() {
         return idCurso;
     }
@@ -95,6 +89,12 @@ public class Turma {
     public void setSab(int sab) {
         this.sab = sab;
     }
-
+    public List<Aluno> getAlunos() {
+        return alunos;
+    }
+    public void setAlunos(List<Aluno> alunos) {
+        this.alunos = alunos;
+    }
+    
     
 }
