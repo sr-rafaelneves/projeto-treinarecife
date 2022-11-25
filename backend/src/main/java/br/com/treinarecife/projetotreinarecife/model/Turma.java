@@ -56,18 +56,7 @@ public class Turma {
     public void setIdTurma(int idTurma) {
         this.idTurma = idTurma;
     }
-    public int getIdCurso() {
-        return idCurso;
-    }
-    public void setIdCurso(int idCurso) {
-        this.idCurso = idCurso;
-    }
-    public int getIdProfessor() {
-        return idProfessor;
-    }
-    public void setIdProfessor(int idProfessor) {
-        this.idProfessor = idProfessor;
-    }
+   
     public Double getValor() {
         return valor;
     }
