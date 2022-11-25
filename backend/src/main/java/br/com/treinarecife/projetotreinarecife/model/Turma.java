@@ -8,6 +8,7 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.OneToMany;
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
 @Entity
@@ -21,25 +22,25 @@ public class Turma {
     @JoinColumn(name = "idAluno")
     private List<Aluno> alunos;
 
-    @OneToMany
+    @OneToOne
     @JoinColumn(name= "idCurso")
-    private List<Curso> cursos;
+    private Curso curso;
     
-    public List<Curso> getCursos() {
-        return cursos;
+    public Curso getCurso() {
+        return curso;
     }
-    public void setCursos(List<Curso> cursos) {
-        this.cursos = cursos;
+    public void setCursos(Curso curso) {
+        this.curso = curso;
     }
-    public List<Professor> getProfessores() {
-        return professores;
+    public Professor getProfessor() {
+        return professor;
     }
-    public void setProfessores(List<Professor> professores) {
-        this.professores = professores;
+    public void setProfessor (Professor professor) {
+        this.professor = professor;
     }
-    @OneToMany
+    @OneToOne
     @JoinColumn(name= "idProfessor")
-    private List<Professor> professores;
+    private Professor professor;
 
 
     private Double valor;
@@ -56,7 +57,7 @@ public class Turma {
     public void setIdTurma(int idTurma) {
         this.idTurma = idTurma;
     }
-   
+
     public Double getValor() {
         return valor;
     }
