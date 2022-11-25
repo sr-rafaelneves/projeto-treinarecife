@@ -1,11 +1,14 @@
 package br.com.treinarecife.projetotreinarecife.model;
 
 import java.util.Date;
+import java.util.List;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 @Entity
@@ -16,6 +19,10 @@ public class DiaAula {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private int idCurso;
     private Date dataAula;
+
+    @OneToMany
+    @JoinColumn(name= "id")
+    private List <Curso> cursos;
     
     public int getIdCurso() {
         return idCurso;
