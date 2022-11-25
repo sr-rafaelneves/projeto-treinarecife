@@ -1,9 +1,13 @@
 package br.com.treinarecife.projetotreinarecife.model;
 
+import java.util.List;
+
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 @Entity
@@ -17,13 +21,17 @@ public class Curso {
     private Double cargaHorariaTotal;
     private String turno;
     private Double valor;
-    private int seg;
-    private int ter;
-    private int qua;
-    private int qui;
-    private int sex;
-    private int sab;
 
+    @OneToMany
+    @JoinColumn(name= "idTurma")
+    private List<Turma> turmas;
+
+    public List<Turma> getTurmas() {
+        return turmas;
+    }
+    public void setTurmas(List<Turma> turmas) {
+        this.turmas = turmas;
+    }
     public int getId() {
         return id;
     }
@@ -60,43 +68,5 @@ public class Curso {
     public void setValor(Double valor) {
         this.valor = valor;
     }
-    public int getSeg() {
-        return seg;
-    }
-    public void setSeg(int seg) {
-        this.seg = seg;
-    }
-    public int getTer() {
-        return ter;
-    }
-    public void setTer(int ter) {
-        this.ter = ter;
-    }
-    public int getQua() {
-        return qua;
-    }
-    public void setQua(int qua) {
-        this.qua = qua;
-    }
-    public int getQui() {
-        return qui;
-    }
-    public void setQui(int qui) {
-        this.qui = qui;
-    }
-    public int getSex() {
-        return sex;
-    }
-    public void setSex(int sex) {
-        this.sex = sex;
-    }
-    public int getSab() {
-        return sab;
-    }
-    public void setSab(int sab) {
-        this.sab = sab;
-    }
-
-
     
 }
