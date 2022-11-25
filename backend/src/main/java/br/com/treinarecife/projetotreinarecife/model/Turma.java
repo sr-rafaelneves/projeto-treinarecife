@@ -16,11 +16,18 @@ public class Turma {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private int idTurma;
+
     @OneToMany
     @JoinColumn(name = "idAluno")
     private List<Aluno> alunos;
+
     private int idCurso;
-    private int idProfessor;
+    
+    @OneToMany
+    @JoinColumn(name= "idProfessor")
+    private List<Professor> professores;
+
+
     private Double valor;
     private int seg;
     private int ter;
