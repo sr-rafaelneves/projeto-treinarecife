@@ -21,8 +21,22 @@ public class Turma {
     @JoinColumn(name = "idAluno")
     private List<Aluno> alunos;
 
-    private int idCurso;
+    @OneToMany
+    @JoinColumn(name= "idCurso")
+    private List<Curso> cursos;
     
+    public List<Curso> getCursos() {
+        return cursos;
+    }
+    public void setCursos(List<Curso> cursos) {
+        this.cursos = cursos;
+    }
+    public List<Professor> getProfessores() {
+        return professores;
+    }
+    public void setProfessores(List<Professor> professores) {
+        this.professores = professores;
+    }
     @OneToMany
     @JoinColumn(name= "idProfessor")
     private List<Professor> professores;
