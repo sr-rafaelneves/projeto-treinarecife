@@ -63,4 +63,7 @@ public class Lead {
     public void setObservacao(String observacao) {
         this.observacao = observacao;
     }
+    public Lead get() {
+        return null;
+    }
 }
