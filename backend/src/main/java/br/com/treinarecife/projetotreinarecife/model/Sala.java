@@ -1,5 +1,6 @@
 package br.com.treinarecife.projetotreinarecife.model;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -13,6 +14,8 @@ public class Sala {
 @Id
 @GeneratedValue(strategy = GenerationType.AUTO)
 private Integer idSala;
+
+@Column(nullable = false)
 private String nome;
 public Integer getIdSala() {
     return idSala;
