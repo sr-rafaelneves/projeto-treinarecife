@@ -6,3 +6,4 @@ import br.com.treinarecife.projetotreinarecife.model.DiaAula;
 public interface DiaaulaRepository extends JpaRepository <DiaAula, Integer>{
 
 }
+
