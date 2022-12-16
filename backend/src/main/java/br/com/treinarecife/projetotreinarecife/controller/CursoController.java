@@ -9,33 +9,31 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
-
-import br.com.treinarecife.projetotreinarecife.model.Turma;
-import br.com.treinarecife.projetotreinarecife.repositories.TurmaRepository;
+import br.com.treinarecife.projetotreinarecife.model.Curso;
+import br.com.treinarecife.projetotreinarecife.repositories.CursoRepository;
 
 @RestController
-@RequestMapping(value = "/turma")
-public class TurmaController {
+@RequestMapping(value = "/curso")
+public class CursoController {
     
     @Autowired
-    private TurmaRepository repository;
+    private CursoRepository repository;
 
     @GetMapping("/{id}")
-    public Turma findById(@PathVariable Integer idTurma){
-        Turma result = repository.findById(idTurma).get();
+    public Curso findById(@PathVariable Integer idCurso){
+        Curso result = repository.findById(idCurso).get();
         return result;
     }
 
     @PostMapping
-    public Turma insert(@RequestBody Turma turma){
-        Turma result = repository.save(turma);
+    public Curso insert(@RequestBody Curso curso){
+        Curso result = repository.save(curso);
         return result;
     }
 
     @GetMapping
-    public List<Turma> All(){
-        List<Turma> result = repository.findAll();
+    public List<Curso> All(){
+        List<Curso> result = repository.findAll();
         return result;
     }
-    
 }

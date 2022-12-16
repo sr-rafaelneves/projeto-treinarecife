@@ -10,32 +10,33 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import br.com.treinarecife.projetotreinarecife.model.Turma;
-import br.com.treinarecife.projetotreinarecife.repositories.TurmaRepository;
+import br.com.treinarecife.projetotreinarecife.model.Feriado;
+import br.com.treinarecife.projetotreinarecife.repositories.FeriadoRepository;
 
 @RestController
-@RequestMapping(value = "/turma")
-public class TurmaController {
+@RequestMapping(value = "/feriado")
+public class FeriadoController {
     
     @Autowired
-    private TurmaRepository repository;
+    private FeriadoRepository repository;
 
     @GetMapping("/{id}")
-    public Turma findById(@PathVariable Integer idTurma){
-        Turma result = repository.findById(idTurma).get();
-        return result;
-    }
-
-    @PostMapping
-    public Turma insert(@RequestBody Turma turma){
-        Turma result = repository.save(turma);
+    public Feriado findById(@PathVariable Integer id){
+        Feriado result = repository.findById(id).get();
         return result;
     }
 
     @GetMapping
-    public List<Turma> All(){
-        List<Turma> result = repository.findAll();
+    public List<Feriado> All(){
+        List<Feriado> result = repository.findAll();
         return result;
     }
-    
+
+    @PostMapping
+    public Feriado insert(@RequestBody Feriado feriado){
+        Feriado result = repository.save(feriado);
+        return result;
+    }
+
+
 }

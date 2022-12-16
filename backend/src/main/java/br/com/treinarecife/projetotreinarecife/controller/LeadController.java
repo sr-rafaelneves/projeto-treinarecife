@@ -10,32 +10,32 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import br.com.treinarecife.projetotreinarecife.model.Turma;
-import br.com.treinarecife.projetotreinarecife.repositories.TurmaRepository;
+import br.com.treinarecife.projetotreinarecife.model.Lead;
+import br.com.treinarecife.projetotreinarecife.repositories.LeadRepository;
 
 @RestController
-@RequestMapping(value = "/turma")
-public class TurmaController {
+@RequestMapping(value = "/lead")
+public class LeadController {
     
     @Autowired
-    private TurmaRepository repository;
+    private LeadRepository repository;
 
-    @GetMapping("/{id}")
-    public Turma findById(@PathVariable Integer idTurma){
-        Turma result = repository.findById(idTurma).get();
+    @PostMapping
+    public Lead insert(@RequestBody Lead lead){
+        Lead result = repository.save(lead);
         return result;
     }
 
-    @PostMapping
-    public Turma insert(@RequestBody Turma turma){
-        Turma result = repository.save(turma);
+    @GetMapping("/{id}")
+    public Lead findById(@PathVariable Integer id){
+        Lead result = repository.findById(id).get();
         return result;
     }
 
     @GetMapping
-    public List<Turma> All(){
-        List<Turma> result = repository.findAll();
+    public List<Lead> All(){
+        List<Lead> result = repository.findAll();
         return result;
     }
-    
+
 }

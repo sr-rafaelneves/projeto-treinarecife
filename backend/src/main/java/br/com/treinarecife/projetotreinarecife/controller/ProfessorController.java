@@ -10,32 +10,31 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import br.com.treinarecife.projetotreinarecife.model.Turma;
-import br.com.treinarecife.projetotreinarecife.repositories.TurmaRepository;
+import br.com.treinarecife.projetotreinarecife.model.Professor;
+import br.com.treinarecife.projetotreinarecife.repositories.ProfessorRepository;
 
 @RestController
-@RequestMapping(value = "/turma")
-public class TurmaController {
+@RequestMapping(value ="/professor")
+public class ProfessorController {
     
     @Autowired
-    private TurmaRepository repository;
+    private ProfessorRepository repository;
 
-    @GetMapping("/{id}")
-    public Turma findById(@PathVariable Integer idTurma){
-        Turma result = repository.findById(idTurma).get();
-        return result;
-    }
-
-    @PostMapping
-    public Turma insert(@RequestBody Turma turma){
-        Turma result = repository.save(turma);
+    @PostMapping("/{id}")
+    public Professor insert(@RequestBody Professor professor){
+        Professor result = repository.save(professor);
         return result;
     }
 
     @GetMapping
-    public List<Turma> All(){
-        List<Turma> result = repository.findAll();
+    public Professor findById(@PathVariable Integer id){
+        Professor result = repository.findById(id).get();
         return result;
     }
-    
+
+    @GetMapping
+    public List<Professor> all(){
+        List<Professor> result = repository.findAll();
+        return result;
+    }
 }
